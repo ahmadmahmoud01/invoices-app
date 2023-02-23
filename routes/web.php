@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\SectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Invoices Routes
 Route::resource('invoices', InvoiceController::class);
+
+// Sections Routes
+Route::resource('sections', SectionController::class);
 
 
 

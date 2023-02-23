@@ -25,7 +25,7 @@
 @endsection
 @section('content')
 				<!-- row -->
-				<div class="row row-sm">
+				<div class="row">
 					<!--div-->
 					<div class="col-xl-12">
 						<div class="card mg-b-20">
