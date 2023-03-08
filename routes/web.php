@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\InvoiceAttachmentsController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
 
 /*
@@ -30,10 +32,36 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Invoices Routes
 Route::resource('invoices', InvoiceController::class);
+Route::get('/section/{id}', [InvoiceController::class, 'getProduct']);
+
+// view file
+Route::get('/view-file/{invoice_number}/{file_name}', [InvoiceAttachmentsController::class, 'viewFile'])->name('file.view');
+
+// download file
+Route::get('/download/{invoice_number}/{file_name}', [InvoiceAttachmentsController::class, 'downloadFile'])->name('file.download');
+
+// edit status of payment
+Route::get('/invoices/{invoice}/edit-payment-status', [InvoiceController::class, 'editPaymentStatus'])->name('payment.status.edit');
+
+//update status of payment
+Route::post('/invoices/{invoice}/update-payment-status', [InvoiceController::class, 'updatePaymentStatus'])->name('payment.status.update');
+
+
 
 // Sections Routes
 Route::resource('sections', SectionController::class);
 
+// Product Routes
+Route::resource('products', ProductController::class);
+
+// attchment route
+
+    //delete file
+Route::resource('invoices-attachments', InvoiceAttachmentsController::class)->only('destroy');
+
+   // add more attachments
+
+Route::post('attachments/add', [InvoiceAttachmentsController::class, 'add'])->name('attachment.add');
 
 
 

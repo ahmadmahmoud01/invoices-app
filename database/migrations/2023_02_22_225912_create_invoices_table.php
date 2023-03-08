@@ -17,14 +17,12 @@ class CreateInvoicesTable extends Migration
             $table->id();
 
             $table->string('invoice_number');
-            $table->date('invoice_Date');
-            $table->date('due_date');
+            $table->date('invoice_date')->nullable();
+            $table->date('due_date')->nullable();
             $table->string('product', 50);
-            $table->string('section', 50);
-            // $table->bigInteger( 'section_id' )->unsigned();
-            // $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
-            // $table->decimal('Amount_collection',8,2)->nullable();;
-            // $table->decimal('Amount_Commission',8,2);
+            $table->foreignId('section_id')->constrained()->cascadeOnDelete();
+            $table->decimal('amount_collection', 8, 2)->nullable();;
+            $table->decimal('amount_commission', 8, 2);
             $table->decimal('discount', 8, 2);
             $table->decimal('value_vat', 8, 2);
             $table->string('rate_vat', 999);
@@ -32,8 +30,7 @@ class CreateInvoicesTable extends Migration
             $table->string('status', 50);
             $table->integer('value_status');
             $table->text('note')->nullable();
-            $table->string('user');
-            // $table->date('Payment_Date')->nullable();
+            $table->date('payment_date')->nullable();
             $table->softDeletes();
 
 
