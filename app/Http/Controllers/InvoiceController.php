@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Invoice_Attachments;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Exports\InvoicesExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class InvoiceController extends Controller
 {
@@ -282,6 +284,12 @@ class InvoiceController extends Controller
         return view('invoices.printInvoice', compact('invoice'));
 
 
+    }
+
+    //export invoice excel sheet
+    public function export()
+    {
+        return Excel::download(new InvoicesExport, 'قائمة الفواتير.xlsx');
     }
 
 

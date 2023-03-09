@@ -30,6 +30,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//export invoices excel sheet
+Route::get('/invoices/export', [InvoiceController::class, 'export'])->name('invoices.export');
+
+
 // Invoices Routes
 Route::resource('invoices', InvoiceController::class);
 Route::get('/section/{id}', [InvoiceController::class, 'getProduct']);
@@ -57,6 +61,8 @@ Route::get('/partially-paid-invoices', [InvoiceController::class, 'partiallyPaid
 
 //print invoice
 Route::get('/print-invoice/{invoice}', [InvoiceController::class, 'printInvoice'])->name('invoices.print');
+
+
 
 
 

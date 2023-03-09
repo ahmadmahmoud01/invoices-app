@@ -67,11 +67,12 @@
 					<div class="col-xl-12">
 						<div class="card mg-b-20">
 							<div class="card-header pb-0">
-								<div class="d-flex justify-content-between">
                                     <a href="{{ route('invoices.create') }}" class="modal-effect btn btn-sm btn-primary" style="color:white"><i
                                         class="fas fa-plus"></i>&nbsp; اضافة فاتورة</a>
-								</div>
-								{{-- <p class="tx-12 tx-gray-500 mb-2">Example of Valex Bordered Table.. <a href="">Learn more</a></p> --}}
+
+                                        <a class="modal-effect btn btn-sm btn-primary" href="{{ route('invoices.export') }}"
+                                        style="color:white"><i class="fas fa-file-download"></i>&nbsp;تصدير اكسيل</a>
+
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
