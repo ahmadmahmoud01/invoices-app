@@ -46,6 +46,18 @@ Route::get('/invoices/{invoice}/edit-payment-status', [InvoiceController::class,
 //update status of payment
 Route::post('/invoices/{invoice}/update-payment-status', [InvoiceController::class, 'updatePaymentStatus'])->name('payment.status.update');
 
+// paid invoices
+Route::get('/paid-invoices', [InvoiceController::class, 'paidInvoices'])->name('invoices.paid');
+
+// unpaid invoices
+Route::get('/unpaid-invoices', [InvoiceController::class, 'unpaidInvoices'])->name('invoices.unpaid');
+
+// partially paid invoices
+Route::get('/partially-paid-invoices', [InvoiceController::class, 'partiallyPaidInvoices'])->name('invoices.partiallyPaid');
+
+//print invoice
+Route::get('/print-invoice/{invoice}', [InvoiceController::class, 'printInvoice'])->name('invoices.print');
+
 
 
 // Sections Routes

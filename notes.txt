@@ -1,0 +1,9 @@
+eps 18 archive table invoice
+- Add paid, unpaid and partially paid invoices pages
+- learn how to archieve invoices using softdelete
+
+eps 19 print invoice
+-try to use this.print package
+
+eps 20 send mail invoice
+

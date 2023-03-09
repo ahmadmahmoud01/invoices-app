@@ -108,7 +108,17 @@
                                                         <td>{{ $invoice->rate_vat}}</td>
                                                         <td>{{ $invoice->value_vat }}</td>
                                                         <td>{{ $invoice->total }}</td>
-                                                        <td class="{{ $invoice->value_status == 1 ? 'text-success' : 'text-warning'}}">{{ $invoice->status }}</td>
+                                                        {{-- <td class="{{ $invoice->value_status == 1 ? 'text-success' : 'text-warning'}}">{{ $invoice->status }}</td> --}}
+                                                        <td>
+                                                            @if ($invoice->value_status == 1)
+                                                                <span class="text-success">{{ $invoice->status }}</span>
+                                                            @elseif($invoice->value_status == 2)
+                                                                <span class="text-danger">{{ $invoice->status }}</span>
+                                                            @else
+                                                                <span class="text-warning">{{ $invoice->status }}</span>
+                                                            @endif
+
+                                                        </td>
                                                         <td>{{ $invoice->note }}</td>
 
                                                         <td>
@@ -146,12 +156,12 @@
                                                                             الارشيف</a>
                                                                     @endcan
 
-                                                                    @can('طباعةالفاتورة')
-                                                                        <a class="dropdown-item" href="Print_invoice/{{ $invoice->id }}"><i
+                                                                    @can('طباعةالفاتورة')--}}
+                                                                        <a class="dropdown-item" href="{{ route('invoices.print', $invoice->id) }}"><i
                                                                                 class="text-success fas fa-print"></i>&nbsp;&nbsp;طباعة
                                                                             الفاتورة
                                                                         </a>
-                                                                    @endcan --}}
+                                                                   {{-- @endcan --}}
                                                                 </div>
                                                             </div>
 
