@@ -14,3 +14,12 @@ eps 21 export excel table invoices
 php artisan make:export InvoicesExport --model=Invoice
 
 ---------------------------------------------------
+eps 22 spatie permission part 1
+- spatie like laratrust (Permissions)
+- https://16shuklarahul.medium.com/laravel-7-x-9ed4d41d327c
+- add MVC for user and role
+- follow steps in link above
+---------------------------------
+eps 23 spatie permission part 2
+-
+

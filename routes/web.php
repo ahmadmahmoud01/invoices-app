@@ -7,6 +7,8 @@ use App\Http\Controllers\InvoiceAttachmentsController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +82,12 @@ Route::resource('invoices-attachments', InvoiceAttachmentsController::class)->on
    // add more attachments
 
 Route::post('attachments/add', [InvoiceAttachmentsController::class, 'add'])->name('attachment.add');
+
+// Users and permissions
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+});
 
 
 
