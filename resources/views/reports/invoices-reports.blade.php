@@ -54,18 +54,18 @@
                             <div class="card-header pb-0">
 
                                 <form action="{{ route('invoices.reports.search') }}" method="POST" role="search" autocomplete="off">
-                                    {{ method_field('POST') }}
+                                    {{-- {{ method_field('POST') }} --}}
                                     {{ csrf_field() }}
 
                                     <div class="col-lg-3">
                                         <label class="radiobox">
-                                            <input checked name="radio" type="radio" value=1 id="type_div"> <span>بحث بنوع
+                                            <input checked name="radio" type="radio" value='1' id="type_div"> <span>بحث بنوع
                                                 الفاتورة</span></label>
                                     </div>
 
 
                                     <div class="col-lg-3 mg-t-20 mg-lg-t-0">
-                                        <label class="radiobox"><input name="radio" value=2 type="radio"><span>بحث برقم الفاتورة
+                                        <label class="radiobox"><input name="radio" value='2' type="radio"><span>بحث برقم الفاتورة
                                             </span></label>
                                     </div><br><br>
 
@@ -128,7 +128,7 @@
 
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    @if (isset($invoices))
+                                    @if (isset($details))
                                         <table id="example" class="table key-buttons text-md-nowrap" style=" text-align: center">
                                             <thead>
                                                 <tr>
@@ -148,7 +148,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($invoices as $invoice)
+                                                @foreach ($details as $invoice)
                                                     <tr>
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $invoice->invoice_number }} </td>

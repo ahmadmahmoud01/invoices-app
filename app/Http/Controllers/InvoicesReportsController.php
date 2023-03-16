@@ -24,14 +24,14 @@ class InvoicesReportsController extends Controller
 
 
             // في حالة عدم تحديد تاريخ
-            if ($request->type == '' && $request->start_at =='' && $request->end_at =='') {
+            if ($request->type && $request->start_at =='' && $request->end_at =='') {
 
-               $invoices = Invoice::where('status',$request->type)->get();
+               $invoices = Invoice::where('status', $request->type)->get();
 
                $type = $request->type;
 
-            //    return view('reports.invoices-reports',compact('type'))->withDetails($invoices);
-               return view('reports.invoices-reports',compact('type', 'invoices'));
+               return view('reports.invoices-reports',compact('type'))->withDetails($invoices);
+            //    return view('reports.invoices-reports',compact('type', 'invoices'));
 
             }
 
@@ -45,9 +45,9 @@ class InvoicesReportsController extends Controller
               $type = $request->type;
 
 
-              $invoices = Invoice::whereBetween('invoice_date',[$start_at,$end_at])->where('status',$request->type)->get();
-            //   return view('reports.invoices-reports',compact('type','start_at','end_at'))->withDetails($invoices);
-              return view('reports.invoices-reports',compact('type','start_at','end_at','invoices'));
+              $invoices = Invoice::whereBetween('invoice_date', [$start_at, $end_at])->where('status', $request->type)->get();
+              return view('reports.invoices-reports',compact('type','start_at','end_at'))->withDetails($invoices);
+            //   return view('reports.invoices-reports',compact('type','start_at','end_at','invoices'));
 
             }
 
@@ -59,8 +59,8 @@ class InvoicesReportsController extends Controller
         else {
 
             $invoices = Invoice::where('invoice_number',$request->invoice_number)->get();
-            // return view('reports.invoices-reports')->withDetails($invoices);
-            return view('reports.invoices-reports', compact('invoices'));
+            return view('reports.invoices-reports')->withDetails($invoices);
+            // return view('reports.invoices-reports', compact('invoices'));
 
         }
 

@@ -2,14 +2,15 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\InvoiceAttachmentsController;
 use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\InvoicesReportsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\RoleController;
+use App\Http\Controllers\InvoicesReportsController;
+use App\Http\Controllers\CustomersReportsController;
+use App\Http\Controllers\InvoiceAttachmentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,11 +69,17 @@ Route::get('/print-invoice/{invoice}', [InvoiceController::class, 'printInvoice'
 
 // Reports
 
-//index page for invoices reports
+//invoices reports page
 Route::get('/invoices-reports', [InvoicesReportsController::class, 'index'])->name('invoices.reports');
 
 // search about number or date of the invoices
 Route::post('/invoices-reports-search', [InvoicesReportsController::class, 'search'])->name('invoices.reports.search');
+
+//customers reports page
+Route::get('/customers-reports', [CustomersReportsController::class, 'index'])->name('customers.reports');
+
+// search about customer reports
+Route::post('/customers-reports-search', [CustomersReportsController::class, 'search'])->name('customers.reports.search');
 
 
 
