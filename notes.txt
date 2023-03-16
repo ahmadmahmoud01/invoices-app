@@ -25,4 +25,7 @@ eps 23 spatie permission part 2
 ----------------------------------
 eps 25 reports table part 1
 -invoices reports and clients reports
+-----------------------------------
+eps 27 statistics (home page)
+-edit home page
 
