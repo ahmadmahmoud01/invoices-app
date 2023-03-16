@@ -3,20 +3,11 @@
     <!--Internal   Notify -->
     <link href="{{ URL::asset('assets/plugins/notify/css/notifIt.css') }}" rel="stylesheet" />
 @section('title')
+    صلاحيات المستخدمين - مورا سوفت للادارة القانونية
+@stop
 
-@section('title', 'صلاحيات المستخدمين')
 
-<!-- Internal Data table css -->
-
-{{-- <link href="{{ URL::asset('assets/plugins/datatable/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" />
-<link href="{{ URL::asset('assets/plugins/datatable/css/buttons.bootstrap4.min.css') }}" rel="stylesheet">
-<link href="{{ URL::asset('assets/plugins/datatable/css/responsive.bootstrap4.min.css') }}" rel="stylesheet" />
-<link href="{{ URL::asset('assets/plugins/datatable/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-<link href="{{ URL::asset('assets/plugins/datatable/css/responsive.dataTables.min.css') }}" rel="stylesheet">
-<!--Internal   Notify -->
-<link href="{{ URL::asset('assets/plugins/notify/css/notifIt.css') }}" rel="stylesheet" />
-
-@endsection --}}
+@endsection
 @section('page-header')
 <!-- breadcrumb -->
 <div class="breadcrumb-header justify-content-between">
@@ -40,6 +31,7 @@
                 type: "success"
             });
         }
+
     </script>
 @endif
 
@@ -51,6 +43,7 @@
                 type: "success"
             });
         }
+
     </script>
 @endif
 
@@ -62,6 +55,7 @@
                 type: "error"
             });
         }
+
     </script>
 @endif
 
@@ -73,9 +67,9 @@
                 <div class="d-flex justify-content-between">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-right">
-                            {{-- @can('اضافة صلاحية') --}}
-                                {{-- <a class="btn btn-primary btn-sm" href="{{ route('roles.create') }}">اضافة</a> --}}
-                            {{-- @endcan --}}
+                            @can('اضافة صلاحية')
+                                <a class="btn btn-primary btn-sm" href="{{ route('roles.create') }}">اضافة</a>
+                            @endcan
                         </div>
                     </div>
                     <br>
@@ -95,10 +89,10 @@
                         <tbody>
                             @foreach ($roles as $key => $role)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ ++$i }}</td>
                                     <td>{{ $role->name }}</td>
                                     <td>
-                                        {{-- @can('عرض صلاحية')
+                                        @can('عرض صلاحية')
                                             <a class="btn btn-success btn-sm"
                                                 href="{{ route('roles.show', $role->id) }}">عرض</a>
                                         @endcan
@@ -115,7 +109,7 @@
                                                 {!! Form::submit('حذف', ['class' => 'btn btn-danger btn-sm']) !!}
                                                 {!! Form::close() !!}
                                             @endcan
-                                        @endif --}}
+                                        @endif
 
 
                                     </td>

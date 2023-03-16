@@ -66,37 +66,37 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>
-                                        {{-- @if ($user->Status == 'مفعل')
+                                        @if ($user->status == 'مفعل')
                                             <span class="label text-success d-flex">
-                                                <div class="dot-label bg-success ml-1"></div>{{ $user->Status }}
+                                                <div class="dot-label bg-success ml-1"></div>{{ $user->status }}
                                             </span>
                                         @else
                                             <span class="label text-danger d-flex">
-                                                <div class="dot-label bg-danger ml-1"></div>{{ $user->Status }}
+                                                <div class="dot-label bg-danger ml-1"></div>{{ $user->status }}
                                             </span>
-                                        @endif --}}
+                                        @endif
                                     </td>
 
                                     <td>
-                                        {{-- @if (!empty($user->getRoleNames()))
+                                        @if (!empty($user->getRoleNames()))
                                             @foreach ($user->getRoleNames() as $v)
                                                 <label class="badge badge-success">{{ $v }}</label>
                                             @endforeach
-                                        @endif --}}
+                                        @endif
                                     </td>
 
                                     <td>
-                                        {{-- @can('تعديل مستخدم')
+                                        {{-- @can('تعديل مستخدم')--}}
                                             <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-info"
                                                 title="تعديل"><i class="las la-pen"></i></a>
-                                        @endcan
+                                        {{-- @endcan --}}
 
-                                        @can('حذف مستخدم')
+                                        {{-- @can('حذف مستخدم') --}}
                                             <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"
                                                 data-user_id="{{ $user->id }}" data-username="{{ $user->name }}"
                                                 data-toggle="modal" href="#modaldemo8" title="حذف"><i
                                                     class="las la-trash"></i></a>
-                                        @endcan --}}
+                                        {{-- @endcan --}}
                                     </td>
                                 </tr>
                             @endforeach
@@ -109,7 +109,7 @@
     <!--/div-->
 
     <!-- Modal effects -->
-    {{-- <div class="modal" id="modaldemo8">
+    <div class="modal" id="modaldemo8">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
@@ -131,7 +131,7 @@
             </div>
             </form>
         </div>
-    </div> --}}
+    </div>
 </div>
 
 </div>

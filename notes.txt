@@ -21,5 +21,8 @@ eps 22 spatie permission part 1
 - follow steps in link above
 ---------------------------------
 eps 23 spatie permission part 2
--
+-use @can('name of permission') blade directive to add permission to blade
+----------------------------------
+eps 25 reports table part 1
+-invoices reports and clients reports
 

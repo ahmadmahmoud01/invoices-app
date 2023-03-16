@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\InvoiceAttachmentsController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\InvoicesReportsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\UserController;
@@ -64,6 +65,14 @@ Route::get('/partially-paid-invoices', [InvoiceController::class, 'partiallyPaid
 //print invoice
 Route::get('/print-invoice/{invoice}', [InvoiceController::class, 'printInvoice'])->name('invoices.print');
 
+
+// Reports
+
+//index page for invoices reports
+Route::get('/invoices-reports', [InvoicesReportsController::class, 'index'])->name('invoices.reports');
+
+// search about number or date of the invoices
+Route::post('/invoices-reports-search', [InvoicesReportsController::class, 'search'])->name('invoices.reports.search');
 
 
 
