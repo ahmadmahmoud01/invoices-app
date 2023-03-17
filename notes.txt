@@ -27,5 +27,9 @@ eps 25 reports table part 1
 -invoices reports and clients reports
 -----------------------------------
 eps 27 statistics (home page)
--edit home page
+-edit home page numbers
+------------------------------
+eps 28 statistics part 2 
+- edit charts using package (fxcosta/laravel-chartjs)
+
 
