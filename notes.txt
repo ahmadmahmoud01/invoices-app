@@ -31,5 +31,9 @@ eps 27 statistics (home page)
 ------------------------------
 eps 28 statistics part 2 
 - edit charts using package (fxcosta/laravel-chartjs)
+----------------------------
+eps 29 notification part 1
+- codechief.org laravel notification
+
 
 
